@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h2, p.subtitle {
+            text-align: center;
+            margin: 5px 0;
+        }
+        p.subtitle {
+            font-size: 12px;
+            font-weight: bold;
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 4px;
+        }
+        legend {
+            font-weight: bold;
+            padding: 0 5px;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="date"],
+        .form-group input[type="number"],
+        .form-group input[type="time"],
+        .form-group input[type="url"],
+        .form-group select {
+            padding: 6px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .hint {
+            font-size: 11px;
+            color: #555;
+            margin-top: 2px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            gap: 12px;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        input[type="submit"], input[type="reset"] {
+            padding: 6px 12px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Student Registration Form</h2>
+    <p class="subtitle">(All Fields are required)</p>
+
+    <form action="#" method="POST">
+        
+        <!-- Personal Information Section -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <div class="form-group">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full_name" maxlength="30" required>
+                <span class="hint">Enter your full name (Maximum 30 characters only)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="register-number">Register Number:</label>
+                <input type="text" id="register-number" name="register_number" pattern="[A-Z]{3}\d{2}[A-Z]{2}\d{3}" placeholder="URK23CS001" required>
+                <span class="hint">(use pattern for matching regno URK23CS001 format)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="sample@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="17" max="21" required>
+                <span class="hint">(minimum 17 & maximum 21)</span>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred-time">Preferred Time:</label>
+                <input type="time" id="preferred-time" name="preferred_time" required>
+            </div>
+        </fieldset>
+
+        <!-- Academic Information Section -->
+        <fieldset>
+            <legend>Academic Information</legend>
+            
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <select id="department" name="department" required>
+                    <option value="" disabled selected>-Select Department-</option>
+                    <option value="CSE">Computer Science and Engineering</option>
+                    <option value="ECE">Electronics and Communication Engineering</option>
+                    <option value="MECH">Mechanical Engineering</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" value="Male" required> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Skills:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                    <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                </div>
+            </div>
+        </fieldset>
+
+        <!-- Additional Information Section -->
+        <fieldset>
+            <legend>Additional Information</legend>
+            
+            <div class="form-group">
+                <label for="resume">Upload Resume:</label>
+                <input type="file" id="resume" name="resume" required>
+            </div>
+
+            <div class="form-group">
+                <label for="portfolio">Portfolio Website:</label>
+                <input type="url" id="portfolio" name="portfolio" placeholder="https://example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fav-color">Favorite Color:</label>
+                <input type="color" id="fav-color" name="fav_color" value="#000000" required>
+            </div>
+        </fieldset>
+
+        <!-- Action Buttons -->
+        <div class="buttons">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+        <div phone number>
+
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
